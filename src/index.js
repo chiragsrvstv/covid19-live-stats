@@ -7,5 +7,3 @@ ReactDOM.render(
   <App />,
   document.querySelector("#root")
 );
-
-export default App;
