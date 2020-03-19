@@ -5,7 +5,8 @@ import CountrySelect from './CountrySelect';
 import DisplayContent from './DisplayContent';
 
 class App extends React.Component {
-  state = { confirmed: null, value: '',  };
+  state = { confirmed: null, country: 'IN' };
+  // country prop should come from countrySelect component, hardcoding for now.
 
   async fetchDaily(){
     const response = await covidApi.get('daily');
@@ -37,7 +38,7 @@ class App extends React.Component {
       <div>
         <h1> App </h1>
         <CountrySelect />
-        <DisplayContent />
+        <DisplayContent selectedCountry={this.state.country}/>
       </div>
     );
   }
