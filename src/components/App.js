@@ -1,5 +1,4 @@
 import React from "react";
-import covidApi from "../api/covidApi";
 
 import CountrySelect from './CountrySelect';
 import DisplayContent from './DisplayContent';
@@ -10,7 +9,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="ui container">
         <h1> App </h1>
         <CountrySelect />
         <DisplayContent selectedCountry={this.state.country} />
