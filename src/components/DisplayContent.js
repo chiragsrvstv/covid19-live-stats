@@ -1,10 +1,6 @@
 import React from "react";
 import covidApi from "../api/covidApi";
 
-import Affected from "./display/Affected";
-import Deaths from "./display/Deaths";
-import Recovered from "./display/Recovered";
-
 class DisplayContent extends React.Component {
   state = { confirmed: null, deaths: null, recovered: null };
 
@@ -12,12 +8,17 @@ class DisplayContent extends React.Component {
     const response = await covidApi.get(
       `countries/${this.props.selectedCountry}`
     );
-    this.setState({
-      confirmed: response.data.confirmed.value,
-      deaths: response.data.deaths.value,
-      recovered: response.data.recovered.value
-    });
-    console.log(response.data);
+
+    if (response.data.confirmed) {
+      this.setState({
+        confirmed: response.data.confirmed.value,
+        deaths: response.data.deaths.value,
+        recovered: response.data.recovered.value
+      });
+      console.log(response.data);
+    } else {
+      return <div> Data Not Found </div>;
+    }
   }
 
   componentDidMount() {
