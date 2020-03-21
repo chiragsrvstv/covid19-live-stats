@@ -1,16 +1,18 @@
 import React from "react";
 
 class Dropdown extends React.Component {
-  state = { value: "IN" };
+  state = { countryOnSelect: "IN" };
 
   handleChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({ countryOnSelect: event.target.value });
   };
 
   handleSubmit = event => {
-    alert("Your country is " + this.state.value);
+    alert("Your country is " + this.state.countryOnSelect);
+    this.props.onCountrySelect(this.state.countryOnSelect);
     event.preventDefault();
   };
+
 
   // countryList = this.props.countries().map(country => console.log(country));
 
@@ -22,7 +24,7 @@ class Dropdown extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Select Country
-            <select className="ui fluid search selection dropdown" value={this.state.value} onChange={this.handleChange}>
+            <select className="ui fluid search selection dropdown" value={this.state.countryOnSelect} onChange={this.handleChange}>
               {Object.entries(this.props.countries).map(([country, code]) => (
                   <option key={code} value={code}> {country} </option>
                 ))}
