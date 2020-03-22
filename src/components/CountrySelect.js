@@ -2,18 +2,14 @@ import React from "react";
 import covidApi from "../api/covidApi";
 
 class CountrySelect extends React.Component {
-  state = { countries: "", selectedCountry: "IN" };
+  state = { countriesList: '', selectedCountry: "IN" };
 
   async fetchCountries() {
     const countriesResponse = await covidApi.get("https://covid19.mathdro.id/api/countries");
-    this.setState({countries: countriesResponse.data.countries});
-    console.log(countriesResponse.data);
+    this.setState({countriesList: countriesResponse.data.countries});
+
 
   }
-
-  // onCountrySelect = (country) => {
-  //   this.setState({seletedcountry: country});
-  // }
 
   handleChange = event => {
     this.setState({ selectedCountry: event.target.value });
@@ -24,13 +20,9 @@ class CountrySelect extends React.Component {
     event.preventDefault();
   };
 
-
   componentDidMount() {
     this.fetchCountries();
   }
-
-
-  // logic to change state which will be passed to app as a prop.
 
   render() {
     return (
@@ -39,7 +31,7 @@ class CountrySelect extends React.Component {
           <label>
             Select Country
             <select className="ui fluid search selection dropdown" value={this.state.selectedCountry} onChange={this.handleChange}>
-              {Object.entries(this.state.countries).map(([country, code]) => (
+              {Object.entries(this.state.countriesList).map(([country, code]) => (
                   <option key={code} value={code}> {country} </option>
                 ))}
             </select>
