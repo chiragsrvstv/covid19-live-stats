@@ -1,5 +1,5 @@
 import React from "react";
-//import '../stylesheets/app.css';
+import '../stylesheets/app.css';
 
 import DisplayContent from './display/DisplayContent';
 import Header from './Header';
