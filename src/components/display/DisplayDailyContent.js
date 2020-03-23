@@ -26,18 +26,20 @@ class DisplayDailyContent extends React.Component {
 
   render() {
     if (!this.state.error) {
-      const affected = new Intl.NumberFormat().format(this.state.dailyConfirmed);
+      const affected = new Intl.NumberFormat().format(
+        this.state.dailyConfirmed
+      );
       const deaths = new Intl.NumberFormat().format(this.state.dailyDeaths);
-      const recovered = new Intl.NumberFormat().format(this.state.dailyRecovered);
+      const recovered = new Intl.NumberFormat().format(
+        this.state.dailyRecovered
+      );
       return (
-        <div>
+        <div className="card">
           <div>
             Affected:
             {affected}
           </div>
-          <div>
-            Deaths: {deaths}
-          </div>
+          <div>Deaths: {deaths}</div>
           <div>
             Recovered:
             {recovered}
@@ -45,11 +47,8 @@ class DisplayDailyContent extends React.Component {
         </div>
       );
     } else if (this.state.error) {
-      return(
-        <div> {this.state.error.message} </div>
-      );
-    }
-    else {
+      return <div> {this.state.error.message} </div>;
+    } else {
       return <div> Loading Stats... </div>;
     }
   }

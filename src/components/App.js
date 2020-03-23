@@ -1,6 +1,8 @@
 import React from "react";
+//import '../stylesheets/app.css';
 
 import DisplayContent from './display/DisplayContent';
+import Header from './Header';
 
 
 class App extends React.Component {
@@ -10,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container">
-        <h1> App </h1>
+        <Header />
         <DisplayContent />
       </div>
     );

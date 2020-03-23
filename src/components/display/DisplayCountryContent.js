@@ -51,7 +51,7 @@ class DisplayContent extends React.Component {
       const deaths = new Intl.NumberFormat().format(this.state.deaths);
       const recovered = new Intl.NumberFormat().format(this.state.recovered);
       return (
-        <div>
+        <div className="card">
           <div>Affected: {affected}</div>
           <div>Deaths: {deaths}</div>
           <div>Recovered: {recovered}</div>

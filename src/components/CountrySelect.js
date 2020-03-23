@@ -51,6 +51,7 @@ class CountrySelect extends React.Component {
                 value={this.state.selectedCountry}
                 onChange={this.handleChange}
               >
+                {/* the */}
                 {Object.entries(this.state.countriesList.countries).map(
                   ([country, code], index) => (
                     /* assigning keys as index value temporarily to remove warnings */
