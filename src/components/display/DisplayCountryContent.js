@@ -16,7 +16,6 @@ class DisplayContent extends React.Component {
     this.setState({ country: selectedCountry });
   };
 
-
   fetchCountryData() {
     covidApi
       .get(`countries/${this.state.country}`)
@@ -28,7 +27,10 @@ class DisplayContent extends React.Component {
           error: false
         });
       })
-      .catch(err => this.setState({ error: err }));
+      .catch(err => {
+        this.setState({ error: err });
+        console.log(err);
+      });
   }
 
   componentDidMount() {
@@ -36,7 +38,7 @@ class DisplayContent extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.country !== this.state.country && !this.state.error) {
+    if (prevState.country !== this.state.country) {
       this.fetchCountryData();
     }
   }
@@ -57,9 +59,7 @@ class DisplayContent extends React.Component {
       return (
         <div>
           <CountrySelect onCountrySelect={this.onCountrySelect} />
-          // load a modal here
           <div> Data Not Yet Available </div>
-
         </div>
       );
     } else {

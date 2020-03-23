@@ -2,13 +2,25 @@ import React from "react";
 import covidApi from "../api/covidApi";
 
 class CountrySelect extends React.Component {
-  state = { countriesList: '', selectedCountry: "IN" };
+  state = {
+    countriesList: "",
+    selectedCountry: "IN",
+    error: true
+  };
 
-  async fetchCountries() {
-    const countriesResponse = await covidApi.get("https://covid19.mathdro.id/api/countries");
-    this.setState({countriesList: countriesResponse.data.countries});
-
-
+  fetchCountries() {
+    covidApi
+      .get("https://covid19.mathdro.id/api/countries")
+      .then(countriesResponse => {
+        this.setState({
+          countriesList: countriesResponse.data,
+          error: false
+        });
+      })
+      .catch(err => {
+        this.setState({ error: err });
+        console.log(err);
+      });
   }
 
   handleChange = event => {
@@ -25,22 +37,39 @@ class CountrySelect extends React.Component {
   }
 
   render() {
-    return (
-      <div className="">
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Select Country
-            <select className="ui fluid search selection dropdown" value={this.state.selectedCountry} onChange={this.handleChange}>
-              {Object.entries(this.state.countriesList).map(([country, code]) => (
-                  <option key={code} value={code}> {country} </option>
-                ))}
-            </select>
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-
-    );
+    if (this.state.countriesList && !this.state.error) {
+      return (
+        <div className="">
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Select Country
+              <select
+                className="ui fluid search selection dropdown"
+                value={this.state.selectedCountry}
+                onChange={this.handleChange}
+              >
+                {Object.entries(this.state.countriesList.countries).map(
+                  ([country, code], index) => (
+                    /* assigning keys as index value temporarily to remove warnings */
+                    <option
+                      key={this.state.countriesList.iso3[code]}
+                      value={code}
+                    >
+                      {country}
+                    </option>
+                  )
+                )}
+              </select>
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+      );
+    } else if (this.state.error) {
+      return <div> {this.state.error} </div>;
+    } else {
+      return <div>Loading Countries...</div>;
+    }
   }
 }
 
