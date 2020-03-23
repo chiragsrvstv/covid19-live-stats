@@ -12,10 +12,12 @@ class DisplayContent extends React.Component {
     error: true
   };
 
+  // method to get selected country from countrySelect component(passed as a prop)
   onCountrySelect = selectedCountry => {
     this.setState({ country: selectedCountry });
   };
 
+  // fetching data specific to a country and storing its result in state
   fetchCountryData() {
     covidApi
       .get(`countries/${this.state.country}`)
@@ -29,7 +31,6 @@ class DisplayContent extends React.Component {
       })
       .catch(err => {
         this.setState({ error: err });
-        console.log(err);
       });
   }
 
@@ -38,6 +39,7 @@ class DisplayContent extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // checking if the selected country data is not already rendered on the page.
     if (prevState.country !== this.state.country) {
       this.fetchCountryData();
     }
@@ -45,27 +47,26 @@ class DisplayContent extends React.Component {
 
   render() {
     if (!this.state.error) {
+      const affected = new Intl.NumberFormat().format(this.state.confirmed);
+      const deaths = new Intl.NumberFormat().format(this.state.deaths);
+      const recovered = new Intl.NumberFormat().format(this.state.recovered);
       return (
         <div>
-          <div>Affected: {this.state.confirmed}</div>
-          <div>Deaths: {this.state.deaths}</div>
-          <div>Recovered: {this.state.recovered}</div>
+          <div>Affected: {affected}</div>
+          <div>Deaths: {deaths}</div>
+          <div>Recovered: {recovered}</div>
           <CountrySelect onCountrySelect={this.onCountrySelect} />
         </div>
       );
-    } else if (
-      this.state.error == "Error: Request failed with status code 404"
-    ) {
+    } else if (this.state.error) {
       return (
         <div>
           <CountrySelect onCountrySelect={this.onCountrySelect} />
           <div> Data Not Yet Available </div>
         </div>
       );
-    } else if (this.state.error) {
-      return <div> {this.state.error.message} </div>;
     } else {
-      return <div> Loading </div>;
+      return <div> Loading... </div>;
     }
   }
 }

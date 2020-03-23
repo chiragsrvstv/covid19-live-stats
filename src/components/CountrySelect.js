@@ -8,6 +8,7 @@ class CountrySelect extends React.Component {
     error: true
   };
 
+  // fetching list of all countries and storing its result in state
   fetchCountries() {
     covidApi
       .get("https://covid19.mathdro.id/api/countries")
@@ -23,10 +24,12 @@ class CountrySelect extends React.Component {
       });
   }
 
+  // method to save value(country) selected by user in state variable
   handleChange = event => {
     this.setState({ selectedCountry: event.target.value });
   };
 
+  // method to pass the selected country back to DisplayCountryContent component when the user hits submit
   handleSubmit = event => {
     this.props.onCountrySelect(this.state.selectedCountry);
     event.preventDefault();

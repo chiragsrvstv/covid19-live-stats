@@ -10,7 +10,7 @@ class DisplayDailyContent extends React.Component {
   };
 
   async componentDidMount() {
-    // fetching daily data from the API
+    // fetching daily data from the API and storing its result in state
     try {
       const dailyDataResponse = await covidApi.get("/");
       this.setState({
@@ -27,6 +27,8 @@ class DisplayDailyContent extends React.Component {
   render() {
     if (!this.state.error) {
       const affected = new Intl.NumberFormat().format(this.state.dailyConfirmed);
+      const deaths = new Intl.NumberFormat().format(this.state.dailyDeaths);
+      const recovered = new Intl.NumberFormat().format(this.state.dailyRecovered);
       return (
         <div>
           <div>
@@ -34,13 +36,11 @@ class DisplayDailyContent extends React.Component {
             {affected}
           </div>
           <div>
-            Deaths: {new Intl.NumberFormat().format(
-              this.state.dailyDeaths
-            )}
+            Deaths: {deaths}
           </div>
           <div>
             Recovered:
-            {new Intl.NumberFormat().format(this.state.dailyRecovered)}
+            {recovered}
           </div>
         </div>
       );
