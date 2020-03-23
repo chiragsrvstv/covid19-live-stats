@@ -52,7 +52,7 @@ class CountrySelect extends React.Component {
                   ([country, code], index) => (
                     /* assigning keys as index value temporarily to remove warnings */
                     <option
-                      key={this.state.countriesList.iso3[code]}
+                      key={index}
                       value={code}
                     >
                       {country}
@@ -66,7 +66,7 @@ class CountrySelect extends React.Component {
         </div>
       );
     } else if (this.state.error) {
-      return <div> {this.state.error} </div>;
+      return <div> Something Went Wrong </div>;
     } else {
       return <div>Loading Countries...</div>;
     }

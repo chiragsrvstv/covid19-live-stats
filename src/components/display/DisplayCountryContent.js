@@ -62,6 +62,8 @@ class DisplayContent extends React.Component {
           <div> Data Not Yet Available </div>
         </div>
       );
+    } else if (this.state.error) {
+      return <div> {this.state.error.message} </div>;
     } else {
       return <div> Loading </div>;
     }
