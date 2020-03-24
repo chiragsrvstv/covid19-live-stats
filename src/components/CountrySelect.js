@@ -14,7 +14,7 @@ class CountrySelect extends React.Component {
       .get("https://covid19.mathdro.id/api/countries")
       .then(countriesResponse => {
         this.setState({
-          countriesList: countriesResponse.data,
+          countriesList: countriesResponse.data.countries,
           error: false
         });
       })
@@ -41,6 +41,8 @@ class CountrySelect extends React.Component {
 
   render() {
     if (this.state.countriesList && !this.state.error) {
+      console.log(this.state);
+      const x = this.state.countriesList;
       return (
         <div className="">
           <form onSubmit={this.handleSubmit}>
@@ -51,17 +53,11 @@ class CountrySelect extends React.Component {
                 value={this.state.selectedCountry}
                 onChange={this.handleChange}
               >
-                {/* the */}
-                {Object.entries(this.state.countriesList.countries).map(
-                  ([country, code], index) => (
-                    /* assigning keys as index value temporarily to remove warnings */
-                    <option
-                      key={index}
-                      value={code}
-                    >
-                      {country}
-                    </option>
-                  )
+                {x.map(country => (
+                  <option key={country.iso3} value={country.iso3}>
+                    {country.name}
+                  </option>
+                )
                 )}
               </select>
             </label>
