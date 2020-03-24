@@ -1,3 +1,19 @@
-.cards {
-    background-color: pink;
+h1 {
+  font-family: "Fjalla One", sans-serif;
+}
+
+body {
+  font-family: "Kanit", sans-serif;
+  font-size: 16px;
+  color: white;
+  background: url("https://cdn.pixabay.com/photo/2016/01/19/17/29/earth-1149733__480.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.ui.huge.header {
+  color: white;
 }
