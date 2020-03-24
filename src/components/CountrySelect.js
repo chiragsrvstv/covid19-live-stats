@@ -41,8 +41,6 @@ class CountrySelect extends React.Component {
 
   render() {
     if (this.state.countriesList && !this.state.error) {
-      console.log(this.state);
-      const x = this.state.countriesList;
       return (
         <div className="">
           <form onSubmit={this.handleSubmit}>
@@ -53,8 +51,8 @@ class CountrySelect extends React.Component {
                 value={this.state.selectedCountry}
                 onChange={this.handleChange}
               >
-                {x.map(country => (
-                  <option key={country.iso3} value={country.iso3}>
+                {this.state.countriesList.map((country, index) => (
+                  <option key={country.iso3 || index} value={country.iso2 || index}>
                     {country.name}
                   </option>
                 )
