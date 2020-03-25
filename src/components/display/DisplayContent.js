@@ -5,9 +5,9 @@ import DisplayDailyContent from './DisplayDailyContent';
 class DisplayContent extends React.Component {
   render() {
     return (
-      <div className="ui special cards">
-        <DisplayDailyContent />
-        <DisplayCountryContent />
+      <div className="ui grid">
+        <DisplayDailyContent className="" />
+        <DisplayCountryContent className="" />
       </div>
     );
   }

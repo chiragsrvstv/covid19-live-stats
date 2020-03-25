@@ -51,11 +51,21 @@ class DisplayContent extends React.Component {
       const deaths = new Intl.NumberFormat().format(this.state.deaths);
       const recovered = new Intl.NumberFormat().format(this.state.recovered);
       return (
-        <div className="card">
-          <div>Affected: {affected}</div>
-          <div>Deaths: {deaths}</div>
-          <div>Recovered: {recovered}</div>
-          <CountrySelect onCountrySelect={this.onCountrySelect} />
+        <div className="row">
+          <div className="five wide column">
+            <div className="ui huge header data"> {affected} </div>
+            <div className="data-label">Affected</div>
+          </div>
+          <div className="five wide column">
+            <div className="ui huge header data"> {deaths} </div>
+            <div className="data-label">Deaths</div>
+          </div>
+          <div className="five wide column">
+            <div className="ui huge header data"> {recovered} </div>
+            <div className="data-label">Recovered</div>
+          </div>
+          <div><CountrySelect onCountrySelect={this.onCountrySelect} /></div>
+
         </div>
       );
     } else if (this.state.error) {
