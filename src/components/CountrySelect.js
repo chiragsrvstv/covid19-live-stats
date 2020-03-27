@@ -24,16 +24,13 @@ class CountrySelect extends React.Component {
       });
   }
 
-  // method to save value(country) selected by user in state variable
+  // method to pass the selected country back to DisplayCountryContent component when the user selects a country
   handleChange = event => {
-    this.setState({ selectedCountry: event.target.value });
+    this.props.onCountrySelect(event.target.value);
+    this.setState({selectedCountry: event.target.value});
   };
 
-  // method to pass the selected country back to DisplayCountryContent component when the user hits submit
-  handleSubmit = event => {
-    this.props.onCountrySelect(this.state.selectedCountry);
-    event.preventDefault();
-  };
+
 
   componentDidMount() {
     this.fetchCountries();
@@ -41,26 +38,27 @@ class CountrySelect extends React.Component {
 
   render() {
     if (this.state.countriesList && !this.state.error) {
+      const iconClassName = `${this.state.selectedCountry.toLowerCase()} flag`;
       return (
         <div className="">
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Select Country
+
+
+              <label> Selected Country: <i className={iconClassName}> </i> </label>
               <select
                 className="ui fluid search selection dropdown"
                 value={this.state.selectedCountry}
                 onChange={this.handleChange}
               >
                 {this.state.countriesList.map((country, index) => (
-                  <option key={country.iso3 || index} value={country.iso2 || index}>
+                  <option className="item" key={country.iso3 || index} value={country.iso2 || index}>
                     {country.name}
                   </option>
                 )
                 )}
               </select>
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+
+
+
         </div>
       );
     } else if (this.state.error) {
