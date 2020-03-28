@@ -14,7 +14,10 @@ class DisplayContent extends React.Component {
 
   // method to get selected country from countrySelect component(passed as a prop)
   onCountrySelect = selectedCountry => {
+    console.log("changed");
     this.setState({ country: selectedCountry });
+    console.log(this.state);
+
   };
 
   // fetching data specific to a country and storing its result in state
@@ -41,6 +44,7 @@ class DisplayContent extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // checking if the selected country data is not already rendered on the page.
     if (prevState.country !== this.state.country) {
+      console.log("updated country is" + this.state.country);
       this.fetchCountryData();
     }
   }

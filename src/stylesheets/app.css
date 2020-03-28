@@ -9,10 +9,10 @@ body {
 }
 
 
-.main {
+body {
   width: 100%;
   height: 100%;
-  background: url("/dark-1853545_1920_Fotor.png") black
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/dark-1853545_1920_Fotor.pngg") rgb(25,28,33)
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -20,43 +20,79 @@ body {
   background-size: cover;
 
 }
-
-
-.ui.huge.header.data{
-  color: white;
-  opacity: 1;
+/* banner */
+.ui.medium.rectangle.test.ad {
+    background-color: black;
+    padding: 1.4em;
+    height: 100%;
 }
 
 /* center quote  */
 .ui.huge.header.quote {
   color: white;
-  font-size: 50px;
+  font-size: 2.1em;
   margin: 2em;
-  border: 4px solid white;
+}
+
+/* data or numbers */
+.ui.huge.header.data{
+  color: white;
+  font-size: 3.5em;
+}
+
+/* data label like affected, deaths */
+.data-label {
+  font-size: 2em;
+  padding: 1px;
+  margin: auto;
 }
 
 /* media query for devices below 370px */
 @media screen and (max-width: 370px) {
+  /* center quote  */
+  .ui.huge.header.quote {
+    font-size: 1.4em;
+    margin: 0.9em 0.5em 0.9em 0.5em;
+    padding: 0.7em;
+  }
+
+  /* data or numbers */
+  .ui.huge.header.data{
+    font-size: 2em;
+    font-weight: 900;
+    margin: 4.5px auto 1px auto;
+    padding: 1px;
+  }
+
+  /* data label like affected, deaths */
+  .data-label {
+    font-size: 1.3em;
+    padding: 1em;
+    margin: 1px;
+    padding: 1px;
+  }
+}
+
+/* media query for devices between 370px and 650px */
+@media screen and (min-width: 370px and max-width: 650px) {
 
   .ui.huge.header.quote {
-    font-size: 28px;
+    font-size: 80px;
     margin: 0.9em 0.5em 0.9em 0.5em;
-    border: 2.6px solid white;
     padding: 1em;
   }
 
   .ui.huge.header.data{
-    font-size: 1.2em;
+    font-size: 2em;
     font-weight: 900;
-    color: pink;
+    color: white;
     margin: 4.5px auto 1px auto;
     padding: 1px;
   }
 
   .data-label {
-    color: pink;
-    padding: 1em;
-    margin: 1px;
-    padding: 1px;
+    padding: 2em;
+    margin: 1.5px;
+    padding: 1.5px;
   }
 }
