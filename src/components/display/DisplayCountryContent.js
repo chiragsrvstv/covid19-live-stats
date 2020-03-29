@@ -56,15 +56,15 @@ class DisplayContent extends React.Component {
       const recovered = new Intl.NumberFormat().format(this.state.recovered);
       return (
         <div className="row">
-          <div className="five wide column">
+          <div className="sixteen wide mobile eight wide tablet five wide computer column">
             <div className="ui huge header data"> {affected} </div>
             <div className="data-label">Affected</div>
           </div>
-          <div className="five wide column">
+          <div className="sixteen wide mobile eight wide tablet five wide computer column">
             <div className="ui huge header data"> {deaths} </div>
             <div className="data-label">Deaths</div>
           </div>
-          <div className="five wide column">
+          <div className="sixteen wide mobile eight wide tablet five wide computer column">
             <div className="ui huge header data"> {recovered} </div>
             <div className="data-label">Recovered</div>
           </div>

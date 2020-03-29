@@ -5,7 +5,7 @@ import DisplayDailyContent from './DisplayDailyContent';
 class DisplayContent extends React.Component {
   render() {
     return (
-      <div className="ui stackable grid">
+      <div className="ui grid">
         <DisplayDailyContent className="" />
         <DisplayCountryContent className="" />
       </div>

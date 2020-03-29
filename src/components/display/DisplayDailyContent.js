@@ -34,18 +34,18 @@ class DisplayDailyContent extends React.Component {
         this.state.dailyRecovered
       );
       return (
-        <div className="row">
-          <div className="five wide column">
+        <div className="red row">
+          <div className="sixteen wide mobile eight wide tablet five wide computer column">
             <div className="ui medium rectangle test ad" data-text=""><div className="ui huge centered header data"> {affected} </div>
-            <div className="data-label">Affected</div></div>
+            <div className="data-label"> Affected </div></div>
           </div>
-          <div className="five wide column">
-            <div className="ui huge header data"> {deaths} </div>
-            <div className="data-label">Deaths</div>
+          <div className="sixteen wide mobile eight wide tablet five wide computer column">
+            <div className="ui medium rectangle test ad" data-text=""><div className="ui huge header data"> {deaths} </div>
+            <div className="data-label"> Deaths </div></div>
           </div>
-          <div className="five wide column">
-            <div className="ui huge header data"> {recovered} </div>
-            <div className="data-label">Recovered</div>
+          <div className="sixteen wide mobile eight wide tablet five wide computer column">
+            <div className="ui medium rectangle test ad" data-text=""><div className="ui huge header data"> {recovered} </div>
+            <div className="data-label"> Recovered </div></div>
           </div>
         </div>
       );
