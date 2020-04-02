@@ -27,10 +27,8 @@ class CountrySelect extends React.Component {
   // method to pass the selected country back to DisplayCountryContent component when the user selects a country
   handleChange = event => {
     this.props.onCountrySelect(event.target.value);
-    this.setState({selectedCountry: event.target.value});
+    this.setState({ selectedCountry: event.target.value });
   };
-
-
 
   componentDidMount() {
     this.fetchCountries();
@@ -41,24 +39,29 @@ class CountrySelect extends React.Component {
       const iconClassName = `${this.state.selectedCountry.toLowerCase()} flag`;
       return (
         <div className="">
-
-
-              <label> Selected Country: <i className={iconClassName}> </i> </label>
-              <select
-                className="ui fluid search selection dropdown"
-                value={this.state.selectedCountry}
-                onChange={this.handleChange}
+          <h1>
+            {" "}
+            Country Specific Cases:{" "}
+            <div className="ui white github button" href="/#">
+              {" "}
+              <i className={iconClassName}> </i>
+            </div>
+          </h1>
+          <select
+            className="ui fluid search selection dropdown"
+            value={this.state.selectedCountry}
+            onChange={this.handleChange}
+          >
+            {this.state.countriesList.map((country, index) => (
+              <option
+                className="item"
+                key={country.name || index}
+                value={country.iso2 || index}
               >
-                {this.state.countriesList.map((country, index) => (
-                  <option className="item" key={country.iso3 || index} value={country.iso2 || index}>
-                    {country.name}
-                  </option>
-                )
-                )}
-              </select>
-
-
-
+                {country.name}
+              </option>
+            ))}
+          </select>
         </div>
       );
     } else if (this.state.error) {

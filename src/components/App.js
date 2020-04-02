@@ -3,6 +3,7 @@ import "../stylesheets/app.css";
 
 import DisplayContent from "./display/DisplayContent";
 import Header from "./Header";
+import Footer from "./footer";
 
 class App extends React.Component {
   // country prop should come from countrySelect component, hardcoding for now.
@@ -18,6 +19,7 @@ class App extends React.Component {
           </div>
           <DisplayContent />
         </div>
+        <Footer />
       </div>
     );
   }
