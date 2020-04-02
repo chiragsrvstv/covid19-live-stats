@@ -52,7 +52,7 @@ class DisplayDailyContent extends React.Component {
               <div className="card 2">
                 <div className="card_image">
                   {" "}
-                  <img src="https://media.giphy.com/media/TGzmgLXkqJgWwbL2aG/giphy.gif" />{" "}
+                  <img src="https://media.giphy.com/media/W5rLUMr4yXP9J9O4kw/giphy.gif" />{" "}
                 </div>
                 <div className="card_title title-white">
                   <h1 className="data-label">Deaths</h1> <h1 className="data-label">{deaths}</h1>
