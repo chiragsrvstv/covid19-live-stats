@@ -65,7 +65,7 @@ class CountrySelect extends React.Component {
         </div>
       );
     } else if (this.state.error) {
-      return <div> Something Went Wrong </div>;
+      return <div className="ui loading segment"> Something Went Wrong </div>;
     } else {
       return <div>Loading Countries...</div>;
     }

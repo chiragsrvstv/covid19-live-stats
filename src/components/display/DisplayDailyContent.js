@@ -41,10 +41,14 @@ class DisplayDailyContent extends React.Component {
               <div className="card 2">
                 <div className="card_image">
                   {" "}
-                  <img src="https://media.giphy.com/media/IhCr97xx4sAzMhY1ns/giphy.gif" />{" "}
+                  <img
+                    src="https://media.giphy.com/media/kaIVrG4k2YfooOOcYE/giphy.gif"
+                    alt="affected"
+                  />{" "}
                 </div>
                 <div className="card_title title-white">
-                  <h1 className="data-label">Affected</h1> <h1 className="data-label">{affected}</h1>
+                  <h1 className="data-label">{affected}</h1>{" "}
+                  <h1 className="data-label">Affected</h1>
                 </div>
               </div>
             </div>
@@ -52,10 +56,14 @@ class DisplayDailyContent extends React.Component {
               <div className="card 2">
                 <div className="card_image">
                   {" "}
-                  <img src="https://media.giphy.com/media/W5rLUMr4yXP9J9O4kw/giphy.gif" />{" "}
+                  <img
+                    src="https://media.giphy.com/media/EEFEyXLO9E0YE/giphy.gif"
+                    alt="deaths"
+                  />{" "}
                 </div>
                 <div className="card_title title-white">
-                  <h1 className="data-label">Deaths</h1> <h1 className="data-label">{deaths}</h1>
+                  <h1 className="data-label">{deaths}</h1>{" "}
+                  <h1 className="data-label">Deaths</h1>
                 </div>
               </div>
             </div>
@@ -63,10 +71,14 @@ class DisplayDailyContent extends React.Component {
               <div className="card 2">
                 <div className="card_image">
                   {" "}
-                  <img src="https://media0.giphy.com/media/d7ksFGq7zgwlZkedcZ/giphy.webp?cid=ecf05e4755c3bd90647ecb950565e96e851760a5d41519c0&rid=giphy.webp" />{" "}
+                  <img
+                    src="https://media.giphy.com/media/xThtaxm8RQ5koMKKxW/giphy.gif"
+                    alt="recovered"
+                  />{" "}
                 </div>
                 <div className="card_title title-white">
-                  <h1 className="data-label">Recovered</h1> <h1 className="data-label">{recovered}</h1>
+                  <h1 className="data-label">{recovered}</h1>{" "}
+                  <h1 className="data-label">Recovered</h1>
                 </div>
               </div>
             </div>
