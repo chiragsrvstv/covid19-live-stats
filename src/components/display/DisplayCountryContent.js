@@ -53,33 +53,18 @@ class DisplayContent extends React.Component {
       const deaths = new Intl.NumberFormat().format(this.state.deaths);
       const recovered = new Intl.NumberFormat().format(this.state.recovered);
       return (
-        <div className="row">
-          <div className="sixteen wide column">
+        <div className="row hero-image">
+          <div className="sixteen wide mobile ten wide tablet ten wide computer column">
             <CountrySelect
               className=""
               onCountrySelect={this.onCountrySelect}
             />
           </div>
-
-          <div className="cards-list1">
-            <div className="sixteen wide mobile eight wide tablet eight wide computer column">
-              <div className="card1">
-                <div className="card_image1">
-                  {" "}
-                  <img
-                    src="https://media.giphy.com/media/MWsCOt1HcAeBGmJ2jB/giphy.gif"
-                    alt="affected"
-                  />{" "}
-                </div>
-                <div className="card_title title-white">
-                  <h1 className="country-data-label">Affected: {affected}</h1>{" "}
-                  <h1 className="country-data-label">Died: {deaths}</h1>
-                  <h1 className="country-data-label"> Recovered: {recovered} </h1>
-                  <p className="country-facts-label">0000 Affected and 1111 Died in Past 24 Hours </p>
-                </div>
-              </div>
-            </div>
-
+          <div className="country sixteen wide column contain">
+            <h1 className="data-label-country">{affected} Affected</h1>
+            <h1 className="data-label-country">{deaths} Died</h1>
+            <h1 className="data-label-country">{recovered} Recovered</h1>
+            
           </div>
         </div>
       );
