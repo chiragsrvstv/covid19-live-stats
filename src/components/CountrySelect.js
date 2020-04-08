@@ -4,7 +4,7 @@ import covidApi from "../api/covidApi";
 class CountrySelect extends React.Component {
   state = {
     countriesList: "",
-    selectedCountry: this.props.defaultCountry || "IN",
+    selectedCountry: this.props.defaultCountry,
     error: true,
   };
 
@@ -61,11 +61,16 @@ class CountrySelect extends React.Component {
         </div>
       );
     } else if (this.state.error) {
-      return <div className="ui loading segment"> Something Went Wrong </div>;
+      return (
+        <div className="ui loader segment">
+          <div className="ui huge red header">Something Went Wrong...</div>
+        </div>
+      );
     } else {
       return <div>Loading Countries...</div>;
     }
   }
 }
 
+CountrySelect.defaultProps = { defaultCountry: "IN" };
 export default CountrySelect;
