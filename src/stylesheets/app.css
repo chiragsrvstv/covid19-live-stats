@@ -3,7 +3,7 @@ h1 {
 }
 
 a {
-  color: pink;
+  color: rgb(230, 76, 127);
 }
 
 .footer {
@@ -21,8 +21,7 @@ body {
 .main {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/gray-surface-450055.jpgg") black no-repeat center center/cover;
+  background: black;
 }
 
 /* center quote  */
@@ -45,14 +44,7 @@ body {
   margin: auto;
 }
 
-/* country specific data label */
-.country-data-label {
-  font-size: 2em;
-  padding: 1.4px;
-  margin: auto;
-}
-
-/* cards----------- */
+/* cards */
 .cards-list {
   z-index: 0;
   width: 100%;
@@ -60,7 +52,6 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
 .card {
   margin: 30px auto;
   width: 300px;
@@ -71,22 +62,20 @@ body {
   cursor: pointer;
   transition: 0.4s;
 }
-
 .card .card_image {
   width: inherit;
   height: inherit;
   border-radius: 40px;
 }
-
-.card .card_image img {
+.card .card_image video {
   width: inherit;
   height: inherit;
   border-radius: 40px;
   object-fit: cover;
   background-color: purple;
 }
-
 .card .card_title {
+  position: relative;
   text-align: center;
   border-radius: 0px 0px 40px 40px;
   font-family: sans-serif;
@@ -95,115 +84,73 @@ body {
   margin-top: -200px;
   height: 40px;
 }
-
 .card:hover {
   transform: scale(0.9, 0.9);
   box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
     -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
 }
-
-.title-white {
+.card.country {
+  width: 500px;
+  height: 500px;
+}
+.card .card_title.country {
+  margin-top: -340px;
+  font-size: 40px;
+}
+.card .title-white {
   color: white;
 }
-
 .title-black {
   color: black;
 }
 
-/* card2--------------------------- */
-.cards-list1 {
-  z-index: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.card1 {
-  margin: 30px auto;
-  width: 300px;
-  height: 300px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.card1 .card_image1 {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-}
-
-.card1 .card_image1 img {
-  width: inherit;
-  height: inherit;
-  border-radius: 40px;
-  object-fit: cover;
-  background-color: purple;
-}
-
-.card1 .card_title {
-  text-align: center;
-  border-radius: 0px 0px 40px 40px;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 30px;
-  margin-top: -250px;
-  height: 40px;
-}
-
-.card1:hover {
-  transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
-    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+/* country list dropdown */
+div.sixteen.wide.column.country {
+  margin-top: 2em;
 }
 
 /* media query for devices below 370px */
-@media all and (max-width: 370px) {
+@media all and (max-width: 380px) {
   /* center quote  */
   .ui.huge.header.quote {
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin: 0.9em 0.5em 0.9em 0.5em;
-    padding: 0.7em;
-  }
-  .cards-list {
-    flex-direction: column;
+    padding: 0.4em;
   }
   .data-label {
     font-size: 1.5em;
   }
-  .country-data-label {
-    font-size: 0.8em;
+  .card.country {
+    width: 300px;
+    height: 300px;
+  }
+  .card .card_title.country {
+    margin-top: -200px;
+    font-size: 27px;
   }
 }
 
 /* media query for devices between 370px and 650px */
-@media only all and (min-width: 370px) and (max-width: 650px) {
+@media only all and (min-width: 380px) and (max-width: 650px) {
   .ui.huge.header.quote {
-    font-size: 45px;
+    font-size: 2em;
     margin: 0.9em 0.5em 0.9em 0.5em;
-    padding: 1em;
-  }
-  .cards-list {
-    flex-direction: column;
-  }
-  .card1 {
-    width: 100%;
-    height: 100%;
+    padding: 0.5em;
   }
   .data-label {
     font-size: 1.5em;
   }
-  .country-data-label {
-    font-size: 1em;
-  }
   .country-facts-label {
     font-size: 0.9em;
   }
-
-
+  .card.country {
+    width: 395px;
+    height: 395px;
+  }
+  .card .card_title.country {
+    margin-top: -260px;
+    font-size: 34px;
+  }
 }
 
 @media only all and (min-width: 650px) and (max-width: 1200px) {
@@ -212,23 +159,18 @@ body {
     margin: 0.9em 0.5em 0.9em 0.5em;
     padding: 1em;
   }
-  .cards-list {
-    flex-direction: column;
+  .data-label {
+    font-size: 1.5em;
   }
-  .card1 {
-    width: 100%;
-    height: 100%;
+}
 
+@media only all and (min-width: 1200px) {
+  .ui.huge.header.quote {
+    font-size: 45px;
+    margin: 0.9em 0.5em 0.9em 0.5em;
+    padding: 1em;
   }
   .data-label {
     font-size: 1.5em;
   }
-  .country-data-label {
-    font-size: 1em;
-  }
-  .country-facts-label {
-    font-size: 0.9em;
-  }
-
-
 }

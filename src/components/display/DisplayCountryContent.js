@@ -9,12 +9,11 @@ class DisplayContent extends React.Component {
     deaths: null,
     recovered: null,
     country: "IN",
-    error: true
+    error: true,
   };
 
   // method to get selected country from countrySelect component(passed as a prop)
-  onCountrySelect = selectedCountry => {
-    console.log("changed");
+  onCountrySelect = (selectedCountry) => {
     this.setState({ country: selectedCountry });
   };
 
@@ -22,15 +21,15 @@ class DisplayContent extends React.Component {
   fetchCountryData() {
     covidApi
       .get(`countries/${this.state.country}`)
-      .then(response => {
+      .then((response) => {
         this.setState({
           confirmed: response.data.confirmed.value,
           deaths: response.data.deaths.value,
           recovered: response.data.recovered.value,
-          error: false
+          error: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ error: err });
       });
   }
@@ -42,7 +41,6 @@ class DisplayContent extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // checking if the selected country data is not already rendered on the page.
     if (prevState.country !== this.state.country) {
-      console.log("updated country is" + this.state.country);
       this.fetchCountryData();
     }
   }
@@ -58,21 +56,38 @@ class DisplayContent extends React.Component {
             <CountrySelect
               className=""
               onCountrySelect={this.onCountrySelect}
+              defaultCountry={this.state.country}
             />
           </div>
-          <div className="country sixteen wide column contain">
-            <h1 className="data-label-country">{affected} Affected</h1>
-            <h1 className="data-label-country">{deaths} Died</h1>
-            <h1 className="data-label-country">{recovered} Recovered</h1>
-            
+
+          <div className="country sixteen wide column cards-list">
+            <div className="card country">
+              <div className="card_image country_image">
+                <video autoPlay muted loop playsInline className="card_image">
+                  <source src="/smoky.webm" type="video/webm" />
+                  <source src="/smoky.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="card_title title-white country">
+                <h1 className="data-label">{affected} Affected</h1>
+                <h1 className="data-label">{deaths} Died</h1>
+                <h1 className="data-label">{recovered} Recovered</h1>
+              </div>
+            </div>
           </div>
         </div>
       );
     } else if (this.state.error) {
       return (
         <div>
-          <CountrySelect onCountrySelect={this.onCountrySelect} />
-          <div> Data Not Yet Available </div>
+          <CountrySelect
+            onCountrySelect={this.onCountrySelect}
+            defaultCountry={this.state.country}
+          />
+          <div className="ui red header container">
+            {" "}
+            Data Not Yet Available{" "}
+          </div>
         </div>
       );
     } else {

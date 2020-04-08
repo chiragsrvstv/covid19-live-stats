@@ -4,28 +4,28 @@ import covidApi from "../api/covidApi";
 class CountrySelect extends React.Component {
   state = {
     countriesList: "",
-    selectedCountry: "IN",
-    error: true
+    selectedCountry: this.props.defaultCountry || "IN",
+    error: true,
   };
 
   // fetching list of all countries and storing its result in state
   fetchCountries() {
     covidApi
       .get("https://covid19.mathdro.id/api/countries")
-      .then(countriesResponse => {
+      .then((countriesResponse) => {
         this.setState({
           countriesList: countriesResponse.data.countries,
-          error: false
+          error: false,
         });
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ error: err });
         console.log(err);
       });
   }
 
   // method to pass the selected country back to DisplayCountryContent component when the user selects a country
-  handleChange = event => {
+  handleChange = (event) => {
     this.props.onCountrySelect(event.target.value);
     this.setState({ selectedCountry: event.target.value });
   };
@@ -42,22 +42,18 @@ class CountrySelect extends React.Component {
           <h1>
             {" "}
             Country Specific Cases:{" "}
-            <div className="ui white github button" href="/#">
+            <div className="ui white circular button" href="/#">
               {" "}
               <i className={iconClassName}> </i>
             </div>
           </h1>
           <select
-            className="ui fluid search selection dropdown"
+            className="ui fluid search dropdown"
             value={this.state.selectedCountry}
             onChange={this.handleChange}
           >
             {this.state.countriesList.map((country, index) => (
-              <option
-                className="item"
-                key={country.name || index}
-                value={country.iso2 || index}
-              >
+              <option key={country.name || index} value={country.iso2}>
                 {country.name}
               </option>
             ))}

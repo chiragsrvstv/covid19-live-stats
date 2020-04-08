@@ -6,7 +6,7 @@ class DisplayDailyContent extends React.Component {
     dailyConfirmed: "",
     dailyDeaths: "",
     dailyRecovered: "",
-    error: true
+    error: true,
   };
 
   async componentDidMount() {
@@ -17,7 +17,7 @@ class DisplayDailyContent extends React.Component {
         dailyConfirmed: dailyDataResponse.data.confirmed.value,
         dailyDeaths: dailyDataResponse.data.deaths.value,
         dailyRecovered: dailyDataResponse.data.recovered.value,
-        error: false
+        error: false,
       });
     } catch (err) {
       this.setState({ error: err });
@@ -40,11 +40,10 @@ class DisplayDailyContent extends React.Component {
             <div className="five wide mobile eight wide tablet five wide computer column">
               <div className="card 2">
                 <div className="card_image">
-                  {" "}
-                  <img
-                    src="https://media.giphy.com/media/kaIVrG4k2YfooOOcYE/giphy.gif"
-                    alt="affected"
-                  />{" "}
+                  <video autoPlay muted loop playsInline className="card_image">
+                    <source src="/bacteria.webm" type="video/webm" />
+                    <source src="/bacteria.mp4" type="video/mp4" />
+                  </video>
                 </div>
                 <div className="card_title title-white">
                   <h1 className="data-label">{affected}</h1>{" "}
@@ -55,11 +54,10 @@ class DisplayDailyContent extends React.Component {
             <div className="sixteen wide mobile eight wide tablet five wide computer column">
               <div className="card 2">
                 <div className="card_image">
-                  {" "}
-                  <img
-                    src="https://media.giphy.com/media/EEFEyXLO9E0YE/giphy.gif"
-                    alt="deaths"
-                  />{" "}
+                  <video autoPlay muted loop playsInline className="card_image">
+                    <source src="/cloud.webm" type="video/webm" />
+                    <source src="/cloud.mp4" type="video/mp4" />
+                  </video>
                 </div>
                 <div className="card_title title-white">
                   <h1 className="data-label">{deaths}</h1>{" "}
@@ -70,11 +68,10 @@ class DisplayDailyContent extends React.Component {
             <div className="sixteen wide mobile eight wide tablet five wide computer column">
               <div className="card 2">
                 <div className="card_image">
-                  {" "}
-                  <img
-                    src="https://media.giphy.com/media/xThtaxm8RQ5koMKKxW/giphy.gif"
-                    alt="recovered"
-                  />{" "}
+                  <video autoPlay muted loop playsInline className="card_image">
+                    <source src="/heal.webm" type="video/webm" />
+                    <source src="/heal.mp4" type="video/mp4" />
+                  </video>
                 </div>
                 <div className="card_title title-white">
                   <h1 className="data-label">{recovered}</h1>{" "}
