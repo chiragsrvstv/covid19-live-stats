@@ -14,7 +14,7 @@ a {
 
 body {
   font-family: "Kanit", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   color: white;
 }
 
@@ -31,15 +31,9 @@ body {
   margin: 2em;
 }
 
-/* data or numbers */
-.ui.huge.header.data {
-  color: white;
-  font-size: 3.5em;
-}
-
 /* data label like affected, deaths */
 .data-label {
-  font-size: 2em;
+  font-size: 1.6em;
   padding: 1px;
   margin: auto;
 }
@@ -94,8 +88,16 @@ body {
   height: 500px;
 }
 .card .card_title.country {
-  margin-top: -340px;
+  margin-top: -415px;
   font-size: 40px;
+}
+.card .card_title.country.today {
+  margin-top: -460px;
+  font-size: 40px;
+}
+
+h1.data-label.head {
+  margin: 0.6em;
 }
 .card .title-white {
   color: white;
@@ -117,17 +119,27 @@ div.sixteen.wide.column.country {
     margin: 0.9em 0.5em 0.9em 0.5em;
     padding: 0.4em;
   }
-  .data-label {
-    font-size: 1.5em;
+  h1.data-label {
+    font-size: 1.6em;
+  }
+  h1.data-label.head {
+    margin: 0.6em;
+  }
+  .summary .data-label {
+    padding: 1.5px;
   }
   .card.country {
     width: 300px;
     height: 300px;
   }
-  .card .card_title.country {
-    margin-top: -200px;
+  .card .card_title.country.today {
+    margin-top: -270px;
     font-size: 27px;
   }
+}
+.card .card_title.country {
+  margin-top: -250px;
+  font-size: 27px;
 }
 
 /* media query for devices between 370px and 650px */
@@ -140,27 +152,78 @@ div.sixteen.wide.column.country {
   .data-label {
     font-size: 1.5em;
   }
-  .country-facts-label {
-    font-size: 0.9em;
+  h1.data-label.head {
+    margin: 30px;
+    font-size: 1.6em;
+  }
+  .summary .data-label {
+    padding: 4px;
   }
   .card.country {
-    width: 395px;
+    width: 390px;
     height: 395px;
   }
+  .card .card_title.country.today {
+    margin-top: -340px;
+    font-size: 34px;
+  }
   .card .card_title.country {
-    margin-top: -260px;
+    margin-top: -290px;
     font-size: 34px;
   }
 }
 
-@media only all and (min-width: 650px) and (max-width: 1200px) {
+@media only all and (min-width: 650px) and (max-width: 768px) {
   .ui.huge.header.quote {
     font-size: 45px;
     margin: 0.9em 0.5em 0.9em 0.5em;
     padding: 1em;
   }
   .data-label {
-    font-size: 1.5em;
+    font-size: 1.6em;
+  }
+  .summary .data-label {
+    font-size: 1.6em;
+    margin: 0.3em;
+  }
+
+  h1.data-label.head {
+    margin: 70px;
+    font-size: 1.8em;
+  }
+  .card .card_title.country.today {
+    margin-top: -450px;
+    font-size: 34px;
+  }
+  .card .card_title.country {
+    margin-top: -380px;
+    font-size: 34px;
+  }
+}
+
+@media only all and (min-width: 768px) and (max-width: 1200px) {
+  .card.country {
+    width: 360px;
+    height: 360px;
+  }
+  .card .card_title.country.today {
+    margin-top: -350px;
+    font-size: 1.6em;
+  }
+  .card .card_title.country {
+    margin-top: -296px;
+    font-size: 32px;
+  }
+  h1.data-label.head {
+    margin: 35px;
+    font-size: 1.7em;
+  }
+  .data-label {
+    font-size: 1.6em;
+  }
+  .summary .data-label {
+    font-size: 1.4em;
+    margin: 0.3em;
   }
 }
 
@@ -170,7 +233,15 @@ div.sixteen.wide.column.country {
     margin: 0.9em 0.5em 0.9em 0.5em;
     padding: 1em;
   }
-  .data-label {
-    font-size: 1.5em;
+  .summary .data-label {
+    padding: 1.5px;
+    margin: 0.27em;
+  }
+  .card .card_title.country {
+    margin-top: -415px;
+    font-size: 40px;
+  }
+  h1.data-label.head {
+    font-size: 1.8em;
   }
 }

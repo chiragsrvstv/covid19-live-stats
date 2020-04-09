@@ -68,31 +68,31 @@ class DisplayContent extends React.Component {
             />
           </div>
 
-          <div className="country eight wide column cards-list">
+          <div className="country sixteen wide mobile eight wide tablet eight wide computer column cards-list">
             <div className="card country">
               <div className="card_image country_image">
                 <video autoPlay muted loop playsInline className="card_image">
-                  <source src="/smoky.webm" type="video/webm" />
-                  <source src="/smoky.mp4" type="video/mp4" />
+                  <source src="/smoky2.webm" type="video/webm" />
+                  <source src="/smoky2.mp4" type="video/mp4" />
                 </video>
               </div>
-              <div className="card_title title-white country">
+              <div className="card_title title-white country summary">
                 <h1 className="data-label">{affected} Affected</h1>
                 <h1 className="data-label">{deaths} Died</h1>
                 <h1 className="data-label">{recovered} Recovered</h1>
               </div>
             </div>{" "}
           </div>
-          <div className="country eight wide column cards-list">
+          <div className="country sixteen wide mobile eight wide tablet eight wide computer column cards-list">
             <div className="card country">
               <div className="card_image country_image">
                 <video autoPlay muted loop playsInline className="card_image">
-                  <source src="/smoky.webm" type="video/webm" />
-                  <source src="/smoky.mp4" type="video/mp4" />
+                  <source src="/waves.webm" type="video/webm" />
+                  <source src="/waves.mp4" type="video/mp4" />
                 </video>
               </div>
-              <div className="card_title title-white country">
-                <h1 className="data-label"> Past 24 Hours </h1>
+              <div className="card_title title-white country today ">
+                <h1 className="data-label head"> Past 24 Hours </h1>
                 <h1 className="data-label"> {todayCases} New Cases </h1>
                 <h1 className="data-label"> {todayDeaths} Deaths</h1>
               </div>
