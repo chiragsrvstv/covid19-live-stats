@@ -84,10 +84,10 @@ class DisplayContent extends React.Component {
             onCountrySelect={this.onCountrySelect}
             defaultCountry={this.state.country}
           />
-          <div className="ui red header container">
-            {" "}
-            Data Not Yet Available{" "}
+          <div className="ui red header centered container">
+            Data Not Yet Available...
           </div>
+          <div></div>
         </div>
       );
     } else {
