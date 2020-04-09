@@ -1,5 +1,5 @@
 import React from "react";
-import covidApi from "../../api/covidApi";
+import covidApi2 from "../../api/covidApi2";
 
 import CountrySelect from "../CountrySelect";
 
@@ -8,6 +8,8 @@ class DisplayContent extends React.Component {
     confirmed: null,
     deaths: null,
     recovered: null,
+    todayCases: "",
+    todayDeaths: "",
     country: "IN",
     error: true,
   };
@@ -19,13 +21,15 @@ class DisplayContent extends React.Component {
 
   // fetching data specific to a country and storing its result in state
   fetchCountryData() {
-    covidApi
-      .get(`countries/${this.state.country}`)
+    covidApi2
+      .get(`yesterday/${this.state.country}`)
       .then((response) => {
         this.setState({
-          confirmed: response.data.confirmed.value,
-          deaths: response.data.deaths.value,
-          recovered: response.data.recovered.value,
+          confirmed: response.data.cases,
+          deaths: response.data.deaths,
+          recovered: response.data.recovered,
+          todayCases: response.data.todayCases,
+          todayDeaths: response.data.todayDeaths,
           error: false,
         });
       })
@@ -50,6 +54,10 @@ class DisplayContent extends React.Component {
       const affected = new Intl.NumberFormat().format(this.state.confirmed);
       const deaths = new Intl.NumberFormat().format(this.state.deaths);
       const recovered = new Intl.NumberFormat().format(this.state.recovered);
+      const todayDeaths = new Intl.NumberFormat().format(
+        this.state.todayDeaths
+      );
+      const todayCases = new Intl.NumberFormat().format(this.state.todayCases);
       return (
         <div className="row hero-image">
           <div className="sixteen wide mobile ten wide tablet ten wide computer column">
@@ -60,7 +68,7 @@ class DisplayContent extends React.Component {
             />
           </div>
 
-          <div className="country sixteen wide column cards-list">
+          <div className="country eight wide column cards-list">
             <div className="card country">
               <div className="card_image country_image">
                 <video autoPlay muted loop playsInline className="card_image">
@@ -72,6 +80,21 @@ class DisplayContent extends React.Component {
                 <h1 className="data-label">{affected} Affected</h1>
                 <h1 className="data-label">{deaths} Died</h1>
                 <h1 className="data-label">{recovered} Recovered</h1>
+              </div>
+            </div>{" "}
+          </div>
+          <div className="country eight wide column cards-list">
+            <div className="card country">
+              <div className="card_image country_image">
+                <video autoPlay muted loop playsInline className="card_image">
+                  <source src="/smoky.webm" type="video/webm" />
+                  <source src="/smoky.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="card_title title-white country">
+                <h1 className="data-label"> Past 24 Hours </h1>
+                <h1 className="data-label"> {todayCases} New Cases </h1>
+                <h1 className="data-label"> {todayDeaths} Deaths</h1>
               </div>
             </div>
           </div>
