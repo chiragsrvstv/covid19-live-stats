@@ -12,5 +12,5 @@ Go to website: https://covidstats.in.net or https://covidstat.netlify.com
 
 ## Data Source
 
-https://covid19.mathdro.id
+https://covid19.mathdro.id <br>
 https://corona.lmao.ninja
