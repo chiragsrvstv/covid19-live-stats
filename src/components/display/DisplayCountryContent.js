@@ -22,7 +22,7 @@ class DisplayContent extends React.Component {
   // fetching data specific to a country and storing its result in state
   fetchCountryData() {
     covidApi2
-      .get(`yesterday/${this.state.country}`)
+      .get(`countries/${this.state.country}?yesterday=true&strict=true`)
       .then((response) => {
         this.setState({
           confirmed: response.data.cases,
