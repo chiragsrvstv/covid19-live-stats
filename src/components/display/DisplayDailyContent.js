@@ -86,7 +86,7 @@ class DisplayDailyContent extends React.Component {
       return (
         <div className="ui active dimmer">
           <div className="ui huge text loader">
-            {this.state.error.message}, Loading !
+            {this.state.error.message} Loading !
           </div>
         </div>
       );
