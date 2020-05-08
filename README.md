@@ -3,7 +3,7 @@
 <img src="/public/showcase.png" width="600">
 
 A PWA application made with React that displays live and updated statistics about Covid-19 outbreak. <br>
-Go to website: https://covidstats.in.net or https://covidstat.netlify.com
+Go to website: https://covidstats.in.net 
 
 ## Installation
 
