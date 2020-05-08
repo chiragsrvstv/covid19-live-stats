@@ -16,3 +16,7 @@ Go to website: https://covidstats.in.net or https://covidstat.netlify.com
 
 https://covid19.mathdro.id <br>
 https://corona.lmao.ninja
+
+## License
+[MIT License](https://github.com/chiragsrvstv/covid19-live-stats/blob/master/LICENSE) <br />
+Copyright (c) 2019 Chirag Srivastava
