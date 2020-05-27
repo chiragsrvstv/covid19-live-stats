@@ -19,4 +19,4 @@ https://corona.lmao.ninja
 
 ## License
 [MIT License](https://github.com/chiragsrvstv/covid19-live-stats/blob/master/LICENSE) <br />
-Copyright (c) 2019 Chirag Srivastava
+Copyright (c) 2020 Chirag Srivastava
